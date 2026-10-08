@@ -1,0 +1,349 @@
+@font-face {
+  font-family: "Hack";
+  src: url("./fonts/Hack.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hack";
+  src: url("./fonts/Hack-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0a0f1e;
+  --panel: #101828;
+  --panel-2: #0d1526;
+  --line: #223052;
+  --text: #d6e6ff;
+  --dim: #8b9bb8;
+  --ice: #7cd2d6;
+  --pink: #ff7edb;
+  --green: #a6f3a6;
+  --line-hover: #35507d;
+  --selection: #a7ebf7bb;
+  --page-top: 32px;
+  --page-bottom: 64px;
+  --icon-width: 80px;
+  --icon-height: 80px;
+  --prose: "Segoe UI Variable Text", "Segoe UI", "Yu Gothic UI", Meiryo, system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(900px 500px at 20% -10%, #16244d 0%, transparent 60%),
+    radial-gradient(700px 500px at 90% 110%, #2b1040 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Hack", ui-monospace, Menlo, monospace;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: var(--page-top) 16px var(--page-bottom);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--bg);
+}
+
+#snow {
+  position: fixed;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.term {
+  position: relative;
+  z-index: 1;
+  width: min(780px, 100%);
+  min-height: calc(100vh - var(--page-top) - var(--page-bottom));
+  min-height: calc(100dvh - var(--page-top) - var(--page-bottom));
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding-left: 14px;
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--line);
+  color: var(--dim);
+  font-size: 13px;
+  user-select: none;
+}
+
+.title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.caption {
+  display: flex;
+  align-self: stretch;
+  margin-left: auto;
+}
+
+.cap {
+  width: 46px;
+  display: grid;
+  place-items: center;
+  color: var(--dim);
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.cap svg {
+  width: 11px;
+  height: 11px;
+  display: block;
+}
+
+.cap:hover {
+  background: rgba(255, 255, 255, .07);
+  color: var(--text);
+}
+
+.cap:active {
+  background: rgba(255, 255, 255, .12);
+}
+
+.body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 22px 26px;
+  font-size: 15px;
+}
+
+.prompt {
+  color: var(--green);
+}
+
+.cmd {
+  color: var(--text);
+}
+
+.comment {
+  color: var(--dim);
+}
+
+.accent {
+  color: var(--ice);
+}
+
+.pink {
+  color: var(--pink);
+}
+
+a {
+  color: var(--ice);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: #fff;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ice);
+  outline-offset: 2px;
+}
+
+.whoami {
+  display: grid;
+  grid-template-columns: var(--icon-width) 1fr;
+  gap: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0 8px;
+  background: rgba(125, 249, 255, .03);
+  font-family: var(--prose);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .28), 0 16px 36px -20px rgba(0, 0, 0, .65);
+  transition: border-color .35s ease, background-color .35s ease, box-shadow .35s ease;
+}
+
+.whoami:hover,
+.whoami:focus-within {
+  border-color: var(--line-hover);
+  background: rgba(125, 249, 255, .05);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .32), 0 20px 44px -20px rgba(0, 0, 0, .7);
+}
+
+.icon {
+  width: var(--icon-width);
+  height: var(--icon-height);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+.kv {
+  margin: 2px 0;
+}
+
+.kv b {
+  color: #fff;
+}
+
+.pronouns {
+  display: inline-block;
+  border: 1px solid var(--ice);
+  color: var(--ice);
+  border-radius: 999px;
+  padding: 0 10px;
+  font-family: "Hack", ui-monospace, monospace;
+  font-size: 12.5px;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.out {
+  margin: 6px 0 20px;
+}
+
+.cards {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0 4px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, .02);
+  font-family: var(--prose);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .3), 0 10px 22px -16px rgba(0, 0, 0, .6);
+  transition: border-color .3s ease, background-color .3s ease,
+    box-shadow .3s ease, transform .3s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  border-color: var(--line-hover);
+  background: rgba(125, 249, 255, .04);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .32), 0 16px 32px -16px rgba(0, 0, 0, .65);
+  transform: translateY(-1px);
+}
+
+.card .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.card .name {
+  font-weight: 700;
+  color: #fff;
+}
+
+.lang {
+  font-family: "Hack", ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--bg);
+  background: var(--ice);
+  border-radius: 4px;
+  padding: 0 6px;
+}
+
+.desc {
+  color: var(--dim);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 2px 0 0;
+}
+
+.cursor::after {
+  content: "▊";
+  color: var(--ice);
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor::after {
+    animation: none;
+  }
+
+  .whoami,
+  .card {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .whoami {
+    grid-template-columns: 64px 1fr;
+  }
+
+  .icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .body {
+    font-size: 14px;
+    padding: 16px;
+  }
+}
+
+.foot {
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--dim);
+  font-size: 13px;
+}
+
+.nav {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--dim);
+  font-size: 13px;
+}
+
+.nav a {
+  margin: 0 8px;
+}
