@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>こなゆき</title>
   <meta name="description" content="こなゆきの個人ページです。多分色々載せます。">
+  <link rel="icon" href="./favicon.ico" sizes="any">
   <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -14,41 +15,63 @@
   <main class="term">
     <div class="bar">
       <span class="title">Windows PowerShell</span>
-      <span class="caption" aria-hidden="true">
-        <span class="cap">
+      <span class="caption">
+        <span class="cap" aria-hidden="true">
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
             <path d="M2.5 6h7" />
           </svg>
         </span>
-        <span class="cap">
+        <span class="cap" aria-hidden="true">
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
             <rect x="2.5" y="2.5" width="7" height="7" rx="1.5" />
           </svg>
         </span>
-        <span class="cap">
+        <button class="cap close" type="button" id="close" aria-label="ウィンドウを閉じる">
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
             <path d="M3 3l6 6M9 3l-6 6" />
           </svg>
-        </span>
+        </button>
       </span>
     </div>
     <div class="body">
 
       <div><span class="prompt">PS C:\Users\Konayuki: </span> <span class="cmd">Get-Content ./README.md</span></div>
-      <div class="whoami">
-        <img class="icon" src="https://avatars.githubusercontent.com/u/224811372?v=4" alt="アイコン">
+      <div class="whoami" id="sec-readme">
+        <img class="icon" src="./assets/hutao.png" alt="アイコン">
         <div>
           <div class="kv">name: <b>Konayuki</b> <span class="pronouns">they / them</span></div>
           <div class="kv">from: <span class="accent">Tokyo, Japan</span></div>
           <div class="kv">bio: ソフトウェア開発、ゲーム、不登校</div>
           <div class="kv">fav: <span class="accent">C#, Rust, Java, LLM, アニメ, Minecraft, 原神</span></div>
-          <div class="kv">links: <a href="https://github.com/Konayukiw">GitHub</a> · <a href="https://x.com/Konayukiw">Twitter</a> · <span class="comment">Discord: @Konayukiw</span></div>
+          <div class="kv">links:
+            <span class="links">
+              <a class="sns" href="https://github.com/Konayukiw" aria-label="GitHub: Konayukiw">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+              </a>
+              <a class="sns" href="https://x.com/Konayukiw" aria-label="X (Twitter): @Konayukiw">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                </svg>
+              </a>
+              <span class="sns discord" tabindex="0" aria-label="Discord: @Konayukiw">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
+                </svg>
+                <span class="tip" aria-hidden="true">@Konayukiw</span>
+              </span>
+            </span>
+          </div>
         </div>
       </div>
 
       <div><span class="prompt">PS C:\Users\Konayuki: </span> <span class="cmd">Get-ChildItem ./apps</span> <span
-          class="comment"># 作ったソフトウェア</span></div>
-      <div class="out cards">
+          class="comment"># 作ったOSS</span></div>
+      <div class="out cards" id="sec-apps">
         <div class="card">
           <div class="row"><a class="name" href="https://github.com/Konayukiw/Flect">Flect</a> <span
               class="lang">C#</span></div>
@@ -73,7 +96,7 @@
 
       <div><span class="prompt">PS C:\Users\Konayuki: </span> <span class="cmd">Get-ChildItem ./web</span> <span
           class="comment"># 作ったWebページ</span></div>
-      <div class="out cards">
+      <div class="out cards" id="sec-web">
         <div class="card">
           <div class="row"><a class="comment">なにもしてない</a> <span class="lang">JA</span></div>
           <p class="desc">これから色々デプロイするつもり</p>
@@ -81,17 +104,35 @@
       </div>
 
       <div><span class="prompt">PS C:\Users\Konayuki: </span> <span class="cmd">Get-Content ./contact.txt</span></div>
-      <div class="out">Discord <span class="accent">@Konayukiw</span>
+      <div class="out" id="sec-contact">Discord <span class="accent">@Konayukiw</span>
         <span class="comment"># 依頼、感想、バグ報告等々いつでもどうぞ</span>
       </div>
 
-      <div><span class="prompt">PS C:\Users\Konayuki: </span> <span class="cursor"></span></div>
+      <form class="input-line" id="prompt">
+        <span class="prompt">PS C:\Users\Konayuki: </span>
+        <input class="cmd-input" id="cmd" type="text" aria-label="コマンドを入力"
+          autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+      </form>
 
       <div class="foot"> - © <span id="clock"></span> · Konayukiw </div>
     </div>
   </main>
 
+  <div class="desktop" id="desktop">
+    <button class="file" type="button" id="readme-file" aria-label="README.md を開く">
+      <svg class="file-icon" viewBox="0 0 48 48" aria-hidden="true">
+        <path class="paper" d="M11 3h19l10 10v30a2 2 0 0 1-2 2H11a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
+        <path class="fold" d="M30 3l10 10H30z" />
+        <rect class="rule" x="15" y="21" width="19" height="2.6" rx="1.3" />
+        <rect class="rule" x="15" y="28" width="19" height="2.6" rx="1.3" />
+        <rect class="rule" x="15" y="35" width="11" height="2.6" rx="1.3" />
+      </svg>
+      <span class="file-name">README.md</span>
+    </button>
+  </div>
+
   <script src="./main.js"></script>
+  <script src="./term.js"></script>
 </body>
 
 </html>

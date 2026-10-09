@@ -4,7 +4,7 @@
   const ctx = canvas.getContext("2d");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  let w = 0, h = 0, flakes = [], raf = null, last = 0;
+  let w = 0, h = 0, flakes = [], raf = null, last = 0, enabled = true;
 
   const sprite = (function () {
     const size = 64;
@@ -69,6 +69,7 @@
   function start() {
     if (raf) cancelAnimationFrame(raf);
     raf = null;
+    if (!enabled) return;
     if (reduced.matches) {
       draw(0);
       return;
@@ -96,6 +97,23 @@
     rt = setTimeout(function () { resize(); start(); }, 150);
   });
   if (reduced.addEventListener) reduced.addEventListener("change", start);
+
+  window.snowfall = {
+    get enabled() { return enabled; },
+    set(value) {
+      enabled = !!value;
+      if (enabled) {
+        resize();
+        start();
+      } else {
+        if (raf) cancelAnimationFrame(raf);
+        raf = null;
+        ctx.clearRect(0, 0, w, h);
+      }
+      return enabled;
+    },
+    toggle() { return this.set(!enabled); }
+  };
 })();
 
 const el = document.getElementById("clock");
